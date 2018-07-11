@@ -9,6 +9,6 @@
         "node": ">=6.9.1"
     },
     "scripts": {
-        "build": "node index.js"
+        "build": "echo 'build'"
     }
 }
