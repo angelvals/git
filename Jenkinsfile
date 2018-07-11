@@ -2,8 +2,14 @@ pipeline {
   agent any
   stages {
     stage('Install') {
+      agent {
+        node {
+          label 'bat'
+        }
+
+      }
       steps {
-        sh 'bat npm install'
+        sh 'npm install'
       }
     }
   }
