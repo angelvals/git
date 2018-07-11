@@ -7,8 +7,17 @@ pipeline {
       }
     }
     stage('Build') {
-      steps {
-        sh 'npm run build'
+      parallel {
+        stage('Build') {
+          steps {
+            sh 'npm run build'
+          }
+        }
+        stage('') {
+          steps {
+            timeout(time: 10)
+          }
+        }
       }
     }
     stage('Test') {
