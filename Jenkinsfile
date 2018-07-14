@@ -9,7 +9,7 @@ pipeline {
     stage('Build') {
       steps {
         sh 'npm run build'
-        emailext(subject: 'Build - Developer', body: 'Build Successfull', attachLog: true, compressLog: true, to: 'Developer_1')
+        emailext(subject: 'Build - Developer', body: 'Build Successfull', attachLog: true, to: 'Developer_1')
       }
     }
     stage('Test') {
