@@ -9,12 +9,14 @@ pipeline {
     stage('Build') {
       steps {
         sh 'npm run build'
-        emailext(subject: 'Build - Developer', body: 'Build Successfull', attachLog: true, to: 'Developer_1')
+        emailext(subject: 'Build - Developer', body: 'Build Completed', attachLog: true, to: 'Developer_1')
       }
     }
     stage('Test') {
       steps {
         sh 'npm test'
+        emailext(subject: 'Testing', body: 'Testing App', from: 'admin', attachLog: true, to: 'Tester_1')
+        input(id: '1', ok: '1', message: 'Aprove')
       }
     }
   }
