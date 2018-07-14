@@ -15,8 +15,14 @@ pipeline {
     stage('Test') {
       steps {
         sh 'npm test'
-        emailext(subject: 'Testing', body: 'Testing App', from: 'admin', attachLog: true, to: 'Tester_1')
-        input(id: '1', message: 'Aprove')
+        emailext(subject: 'Testing', body: 'Testing App, please approve', from: 'admin', attachLog: true, to: 'Tester_1')
+        input(id: '1', message: 'Approve testing')
+      }
+    }
+    stage('Release') {
+      steps {
+        sh '''git commit -am "Release"
+git push origin master'''
       }
     }
   }
