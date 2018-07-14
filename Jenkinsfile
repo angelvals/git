@@ -24,6 +24,7 @@ pipeline {
         sh '''git add .
 git commit -am "Release"
 git push origin master'''
+        waitUntil()
       }
     }
   }
