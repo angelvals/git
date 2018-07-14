@@ -21,7 +21,8 @@ pipeline {
     }
     stage('Release') {
       steps {
-        sh '''git commit -am "Release"
+        sh '''git add .
+git commit -am "Release"
 git push origin master'''
       }
     }
