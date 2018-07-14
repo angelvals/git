@@ -21,10 +21,7 @@ pipeline {
     }
     stage('Release') {
       steps {
-        sh '''git add .
-git commit -am "Release"
-git push origin master'''
-        waitUntil()
+        input(message: 'Commit to master?', id: '2')
       }
     }
   }
