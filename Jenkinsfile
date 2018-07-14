@@ -4,12 +4,12 @@ pipeline {
     stage('Install') {
       steps {
         sh 'npm install'
-        emailext(to: 'Developer_1', subject: 'Develop complete', body: 'Develop phase is completed', from: 'admin')
       }
     }
     stage('Build') {
       steps {
         sh 'npm run build'
+        emailext(subject: 'Build - Developer', body: 'Build Successfull', attachLog: true, compressLog: true, to: 'Developer_1')
       }
     }
     stage('Test') {
